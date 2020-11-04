@@ -1,15 +1,48 @@
 
 <?php include "inc\header.php" ?>
-<body>
 
+
+<body> 
 
 	<!-- container -->
 	<div class="container">
 
 		<ol class="breadcrumb">
-			<li><a href="index.html">Home</a></li>
+			<li><a href="index.php">Home</a></li>
 			<li class="active">Registration</li>
 		</ol>
+
+
+
+		<?php //Page d'inscription 
+
+if (isset($_REQUEST['login'], $_REQUEST['nom'], $_REQUEST['mdp'], $_REQUEST['prenom'])){
+	// récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
+	$login = stripslashes($_REQUEST['login']);
+	$login = mysqli_real_escape_string($conn, $login); 
+	// récupérer l'nom et supprimer les antislashes ajoutés par le formulaire
+	$email = stripslashes($_REQUEST['nom']);
+	$nom = mysqli_real_escape_string($conn, $nom);
+	// récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
+	$mdp = stripslashes($_REQUEST['mdp']);
+    $mdp = mysqli_real_escape_string($conn, $mdp);
+    // récupérer le téléphone et supprimer les antislashes ajoutés par le formulaire
+	$prenom = stripslashes($_REQUEST['prenom']);
+    $prenom = mysqli_real_escape_string($conn, $prenom);
+
+	//requéte SQL + mot de passe crypté
+    $query = "INSERT into `user` (login, nom, mdp, prenom)
+              VALUES ('$login', '$nom', '".hash('sha256', $mdp)."', '$prenom')";
+	// Exécute la requête sur la base de données
+    $res = mysqli_query($conn, $query);
+    if($res){
+       echo "<div class='sucess'>
+             <h3>Vous êtes inscrit avec succès.</h3>
+             <p>Cliquez ici pour vous <a href='signin.php'>connecter</a></p>
+			 </div>";
+    }
+}else{ 
+?>
 
 		<div class="row">
 			
@@ -23,31 +56,28 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Register a new account</h3>
-							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signin.html">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
+							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signin.php">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
 							<hr>
 
-							<form>
+							<form action="" method="post">
 								<div class="top-margin">
-									<label>First Name</label>
-									<input type="text" class="form-control">
+									<label>login</label>
+									<input type="text" name="login" class="form-control">
 								</div>
 								<div class="top-margin">
-									<label>Last Name</label>
-									<input type="text" class="form-control">
+									<label>Nom <span class="text-danger">*</span></label>
+									<input type="text" name="nom" class="form-control">
 								</div>
+
 								<div class="top-margin">
-									<label>Email Address <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+									<label>prenom<span class="text-danger">*</span></label>
+									<input type="text" name="prenom" class="form-control">
 								</div>
 
 								<div class="row top-margin">
 									<div class="col-sm-6">
-										<label>Password <span class="text-danger">*</span></label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="col-sm-6">
-										<label>Confirm Password <span class="text-danger">*</span></label>
-										<input type="text" class="form-control">
+										<label>Mot de passe <span class="text-danger">*</span></label>
+										<input type="password" name="mdp" class="form-control">
 									</div>
 								</div>
 
@@ -62,6 +92,7 @@
 									</div>
 									<div class="col-lg-4 text-right">
 										<button class="btn btn-action" type="submit">Register</button>
+										
 									</div>
 								</div>
 							</form>
@@ -72,12 +103,18 @@
 				
 			</article>
 			<!-- /Article -->
-
 		</div>
+
+<?php } ?>
 	</div>	<!-- /container -->
+
+
 	
 
+	
 
 </body>
 
+
 <?php include "inc\jooter.php" ?>
+

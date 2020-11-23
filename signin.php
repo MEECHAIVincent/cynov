@@ -29,8 +29,8 @@ if (isset($_POST['login'])){
 	<div class="container">
 
 		<ol class="breadcrumb">
-			<li><a href="index.php">Home</a></li>
-			<li class="active">User access</li>
+			<li><a href="index.php">Accueil</a></li>
+			<li class="active">Connexion</li>
 		</ol>
 
 		<div class="row">
@@ -45,12 +45,12 @@ if (isset($_POST['login'])){
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Connectez vous à votre compte</h3>
-							<p class="text-center text-muted"> Seul l'administrateur de cette page peut se connecter. </p>
+							<p class="text-center text-muted"> Vous n'êtes pas encore inscrit? Inscrivez vous dès maintenant <a href="signup.php">ici</a>.</p>
 							<hr>
 							
 							<form action="" method="post" name="login">
 								<div class="top-margin">
-									<label>login <span class="text-danger">*</span></label>
+									<label>Pseudo<span class="text-danger">*</span></label>
 									<input type="text" name="login" class="form-control">
 								</div>
 								<div class="top-margin">

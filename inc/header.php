@@ -1,4 +1,5 @@
 <?php
+//require 'connect.php';
 	// Initialiser la session
         session_start();
         
@@ -13,7 +14,7 @@
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 	
-	<title>Progressus - Free business bootstrap template by GetTemplate</title>
+	<title>CYNOV</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -24,13 +25,25 @@
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="assets/css/main.css">
-
+        <script type="text/javascript" src="JQUERY/jquery-3.1.1.js"></script>
+        
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
     <![endif]-->
     	<!-- Fixed navbar -->
+        
+        <?php 
+// if (isset($_SESSION['login'])){       
+//        $bdd = getBdd();
+//        $userid = $_SESSION['login'];
+//        $sqli = mysqli_query($bdd, "SELECT admin FROM user WHERE login='$userid' ");
+//        $result = mysqli_fetch_assoc($sqli);
+//        $idadmin = $result['admin'];
+//        //statut admin
+//        if ($idadmin=="0") {
+?>
 	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
 		<div class="container">
 			<div class="navbar-header">
@@ -41,24 +54,40 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li><a href="index.php">Accueil</a></li>
-					<li><a href="about.php">A propos</a></li>
-					<li><a href="contact.php">Contact</a></li>
-					<li><a href="sidebar-left.php">Sidebar Left</a></li>
-					<li><a href="sidebar-right.php">Sidebar Right</a></li>
+					<li><a href="nvarticle.php">Nouvel article</a></li>
+					<li><a href="allarticles.php">Articles</a></li>
+					
 					<?php
-						if (isset($_SESSION['login']) && !empty($_SESSION['login'])) { ?>
-
+						if (isset($_SESSION['login']) && !empty($_SESSION['login']) && $_SESSION['admin']==0 ){?>
+                                                                
 								<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mon compte<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="profile.php">Mes informations</a></li>
-											<li><a href="nvarticle.php">Ajouter un article</a></li>
+											
 									</ul>
 								</li>
 							    
 								<li><a class="btn" href="logout.php">Déconnexion</a></li>
 								
-							
+                                        <?php  }else if (isset($_SESSION['login']) && !empty($_SESSION['login'])&& $_SESSION['admin']==1) {	?>
+                                                                <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="gestionuser.php">Gestion utilisateur</a></li>
+                                                                                        <li><a href="gestionarticle.php">Gestion article</a></li>
+											
+									</ul>
+								</li>
+                                                                <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mon compte<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="profile.php">Mes informations</a></li>
+											
+									</ul>
+								</li>
+							    
+								<li><a class="btn" href="logout.php">Déconnexion</a></li>
 
 					<?php	} else {?>
 						<li><a class="btn" href="signin.php">Connexion / Inscription</a></li>
@@ -78,7 +107,10 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-
+            <?php // } 
+        
+// }
+        ?>
 	<header id="head" class="secondary"></header>
 </head>
 <?php include "data\data.php" ?>

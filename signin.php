@@ -1,5 +1,7 @@
 <?php include "inc\header.php" ?>
-
+<?php  require 'connect.php';
+        $bdd = getBdd();
+ ?>
 
 <body>
 <?php
@@ -13,10 +15,14 @@ if (isset($_POST['login'])){
 	$mdp = mysqli_real_escape_string($conn, $mdp);
     $query = "SELECT * FROM `user` WHERE login='$login' and mdp='".hash('sha256', $mdp)."'";
 	$result = mysqli_query($conn,$query) or die (mysqli_connect_error());
+        $data = mysqli_fetch_assoc($result);
+        $admin = $data['admin'];
+
 	$rows = mysqli_num_rows($result);
 	if($rows==1){
 		$_SESSION['login'] = $login;
 		$_SESSION['id'] = $id;
+                $_SESSION['admin']=$admin;
 		
 	    header("Location: index.php");
 	}else{
@@ -62,7 +68,7 @@ if (isset($_POST['login'])){
 
 								<div class="row">
 									<div class="col-lg-8">
-										<b><a href="">Mot de passe oublié?</a></b>
+										<b><a href="signup.php">Pas encore inscrit?</a></b>
 									</div>
 									<div class="col-lg-4 text-right">
 										<button class="btn btn-action" type="submit" value="Connexion " name="submit">Connexion</button>

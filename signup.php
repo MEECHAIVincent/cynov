@@ -1,7 +1,9 @@
 
 <?php include "inc\header.php" ?>
 
-
+<?php  require 'connect.php';
+        $bdd = getBdd();
+ ?>
 <body> 
 
 	<!-- container -->
@@ -185,5 +187,5 @@ if (isset($_REQUEST['login'], $_REQUEST['nom'], $_REQUEST['mdp'], $_REQUEST['pre
 </body>
 
 
-<?php include "inc\jooter.php" ?>
 
+<?php include "inc\jooter.php" ?>

@@ -1,7 +1,9 @@
 
 
 <?php include "inc\header.php" ?>
-
+<?php  require 'connect.php';
+        $bdd = getBdd();
+ ?>
 <body class="home">
 
 
@@ -9,9 +11,8 @@
 	<header id="head">
 		<div class="container">
 			<div class="row">
-				<h1 class="lead">AWESOME, CUSTOMIZABLE, FREE</h1>
-				<p class="tagline">PROGRESSUS: free business bootstrap template by <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>
-				<p><a class="btn btn-default btn-lg" role="button">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">DOWNLOAD NOW</a></p>
+				<h1 class="lead">BIENVENUE!</h1>
+				
 			</div>
 		</div>
 	</header>
@@ -20,10 +21,9 @@
 	<!-- Intro -->
 	<div class="container text-center">
 		<br> <br>
-		<h2 class="thin">The best place to tell people why they are here</h2>
+		<h2 class="thin">CYNOV est l'application qui permet de partager sa passion pour le cinéma</h2>
 		<p class="text-muted">
-			The difference between involvement and commitment is like an eggs-and-ham breakfast:<br> 
-			the chicken was involved; the pig was committed.
+			Consultez les articles ou bien rédigez les vôtres afin de pouvoir partager vos avis sur vos films favoris! 
 		</p>
 	</div>
 	<!-- /Intro-->

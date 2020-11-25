@@ -1,3 +1,10 @@
+<?php
+	// Initialiser la session
+        session_start();
+        
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,17 +40,39 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li><a href="index.php">Home</a></li>
-					<li class="active"><a href="about.php">About</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.php">Left Sidebar</a></li>
-							<li><a href="sidebar-right.php">Right Sidebar</a></li>
-						</ul>
-					</li>
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="about.php">A propos</a></li>
 					<li><a href="contact.php">Contact</a></li>
-					<li><a class="btn" href="signin.php">SIGN IN / SIGN UP</a></li>
+					<li><a href="sidebar-left.php">Sidebar Left</a></li>
+					<li><a href="sidebar-right.php">Sidebar Right</a></li>
+					<?php
+						if (isset($_SESSION['login']) && !empty($_SESSION['login'])) { ?>
+
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mon compte<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="profile.php">Mes informations</a></li>
+											<li><a href="nvarticle.php">Ajouter un article</a></li>
+									</ul>
+								</li>
+							    
+								<li><a class="btn" href="logout.php">Déconnexion</a></li>
+								
+							
+
+					<?php	} else {?>
+						<li><a class="btn" href="signin.php">Connexion / Inscription</a></li>
+							
+
+					<?php	}
+
+
+
+
+
+
+					?>
+					
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

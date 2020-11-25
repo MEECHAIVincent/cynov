@@ -7,10 +7,10 @@
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Contact</h3>
 						<div class="widget-body">
-							<p>+234 23 9873237<br>
-								<a href="mailto:#">some.email@somewhere.com</a><br>
+							<p>+336 01020304<br>
+								<a href="mailto:#">contact@cynov.com</a><br>
 								<br>
-								234 Hidden Pond Road, Ashland City, TN 37015
+								12 rue Anatole France, Nanterre, 9200
 							</p>	
 						</div>
 					</div>
@@ -46,11 +46,11 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="#">Home</a> | 
-								<a href="about.html">About</a> |
+								<a href="#">Accueil</a> | 
+								<a href="about.html">A propos</a> |
 								<a href="sidebar-right.html">Sidebar</a> |
 								<a href="contact.html">Contact</a> |
-								<b><a href="signup.html">Sign up</a></b>
+								<b><a href="signup.html">Inscription</a></b>
 							</p>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
-								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+								Copyright &copy; 2020, Cynov. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
 							</p>
 						</div>
 					</div>

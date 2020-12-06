@@ -75,7 +75,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                 // Espace Coemmentaire
                 echo '<div >
                     <h2><b>Commentaire</b></h2>
-
+                    <
 
                 </div>'
             ?>

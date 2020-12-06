@@ -80,7 +80,7 @@
 			<?php
 			$result = $pdo->query("SELECT `id_article`,`film`,`date_sortie`,date_publication,c.nom_categorie, affiche, contenu, note
 									FROM `article` as a JOIN categorie as c on c.id_categorie = a.categorie
-									 
+									WHERE statut = 1									 
 									ORDER BY a.date_publication DESC
 									LIMIT 10");
                                         while ($data = $result->fetch(PDO::FETCH_OBJ)) {

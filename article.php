@@ -43,26 +43,47 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
             echo '            
             <header class="page-header">
-            <h1 class="page-title">'.$article['film']. '</h1>
+            <h1 class="page-title"><b>'.$article['film']. '</b></h1>
             </header>';
 
 
             // <!-- affichage des valeurs  -->
             echo '
-                <div>                        
-                    <img style="width: 100px, float:right"  src="'.$article['affiche'].'"/>
-                    <p> Réalisateur: '.$article['realisateur'].'</p> 
-                    <p> Catégorie:'.$article['nom_categorie'].'</p> 
-                    <p> Date de sortie:'.$article['sortie'].'</p>
-                    <p> Auteur de larticle: '.$article['note']. '</p> 
-                    <p> Auteur de larticle: '.$article['contenu']. '</p> 
-                    <p> Auteur de larticle: '.$article['login']. '</p> 
-                    <p> Date de publication: '.$article['publication']. '</p>
+                <div style="font-size: large; display: inline-flex" >                        
+                    <div>    
+                        <img style="width: 300px; float:left; padding-right: 15px; clear:left"  src="'.$article['affiche'].'"/>
+                    </div>
+                    <div>
+                        <p> <b> Réalisateur: </b>'.$article['realisateur'].'</p> 
+                        <p> <b>Catégorie: </b>'.$article['nom_categorie'].'</p> 
+                        <p> <b>Date de sortie: </b>'.$article['sortie'].'</p>
+                        <p> <b>Note: </b> '.$article['note']. '/10</p>
+                    </div>
+                </div>
+                <section>
+                <h2><b>Synopsis et détails</b></h2>
+                <div>
+                <p> '.$article['contenu']. '</p>
+
+                </div>
+                </section>
+                <div style="font-size:x-large">
+
+                    <p> <b>Auteur de larticle: '.$article['login'].' plubliée le '.$article['publication']. '</b></p> 
                 </div>';
+
+                // Espace Coemmentaire
+                echo '<div >
+                    <h2><b>Commentaire</b></h2>
+                    <
+
+                </div>'
             ?>
+
 
         </div>
     </div>
 </body>
+
 
 <?php include "inc\jooter.php" ?> 

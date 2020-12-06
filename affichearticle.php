@@ -82,5 +82,4 @@ echo'</fieldset>';
 include("redirection.php");
 
     }
-?>     
-    
+?>

@@ -36,9 +36,9 @@ if (isset($_REQUEST['login'], $_REQUEST['nom'], $_REQUEST['mdp'], $_REQUEST['pre
     $query = "INSERT into `user` (login, nom, mdp, prenom)
               VALUES ('$login', '$nom', '".hash('sha256', $mdp)."', '$prenom')";
 	// Exécute la requête sur la base de données
-    $res = mysqli_query($conn, $query);
+	$res = mysqli_query($conn, $query);
+	var_dump($login,$nom,$mdp,$prenom,$query,$res);
     if($res){
-
 
 
 			 

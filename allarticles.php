@@ -74,7 +74,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
 <input type="submit" class="btn btn-primary" value="Rechercher" name="valider" /></br></br>
-
+</form>
 <?php
   if (isset($_POST['categorie'])&& isset($_POST['realisateur'])&& $_POST['categorie']!="vide" && $_POST['realisateur']!="vide") {
       $bdd = getBdd();
@@ -85,7 +85,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where categorie=$categorie and realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where categorie=$categorie and realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
@@ -102,7 +102,21 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                        
                     </tr>';
                     while ( ($row = mysqli_fetch_assoc($requete2)) ) {
-                        echo '<tr class="debut"> <td colspan=2> '.$row['film']. '</td> <td colspan=2> '.$row['realisateur'].'</td> <td colspan=2> '.$row['nom_categorie'].'</td> <td colspan=2> '.$row['sortie'].'</td><td colspan=2> '.$row['login']. '</td> <td colspan=2> '.$row['publication']. '</td>  <td colspan=2> <input type="button"  value="consulter"></input></td> </tr>';
+                        echo '
+                        <form method="POST" action="article.php" enctype="multipart/form-data">
+
+                        <input type="hidden" name="id" value='.$row['id_article'].'>
+                            <tr class="debut">
+                                <td colspan=2> <img src="'.$row['affiche'].'"/></td> 
+                                <td colspan=2> '.$row['film']. '</td> 
+                                <td colspan=2> '.$row['realisateur'].'</td> 
+                                <td colspan=2> '.$row['nom_categorie'].'</td> 
+                                <td colspan=2> '.$row['sortie'].'</td>
+                                <td colspan=2> '.$row['login']. '</td>
+                                <td colspan=2> '.$row['publication']. '</td> 
+                                <td colspan=2> <input type="submit"  value="consulter"></input></td> 
+                            </tr>
+                            </form>';  
                     }
                     echo '</table>';
                     mysqli_close($bdd);
@@ -118,7 +132,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  categorie=$categorie and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  categorie=$categorie and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
@@ -135,7 +149,21 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                        
                     </tr>';
                     while ( ($row = mysqli_fetch_assoc($requete2)) ) {
-                        echo '<tr class="debut"> <td colspan=2> '.$row['film']. '</td> <td colspan=2> '.$row['realisateur'].'</td> <td colspan=2> '.$row['nom_categorie'].'</td> <td colspan=2> '.$row['sortie'].'</td><td colspan=2> '.$row['login']. '</td> <td colspan=2> '.$row['publication']. '</td>  <td colspan=2> <input type="button"  value="consulter"></input></td> </tr>';
+                        echo '
+                        <form method="POST" action="article.php" enctype="multipart/form-data">
+
+                        <input type="hidden" name="id" value='.$row['id_article'].'>
+                            <tr class="debut">
+                                <td colspan=2> <img src="'.$row['affiche'].'"/></td> 
+                                <td colspan=2> '.$row['film']. '</td> 
+                                <td colspan=2> '.$row['realisateur'].'</td> 
+                                <td colspan=2> '.$row['nom_categorie'].'</td> 
+                                <td colspan=2> '.$row['sortie'].'</td>
+                                <td colspan=2> '.$row['login']. '</td>
+                                <td colspan=2> '.$row['publication']. '</td> 
+                                <td colspan=2> <input type="submit"  value="consulter"></input></td> 
+                            </tr>
+                            </form>';  
                     }
                     echo '</table>';
                     mysqli_close($bdd);
@@ -150,7 +178,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
@@ -167,7 +195,21 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                        
                     </tr>';
                     while ( ($row = mysqli_fetch_assoc($requete2)) ) {
-                        echo '<tr class="debut"> <td colspan=2> '.$row['film']. '</td> <td colspan=2> '.$row['realisateur'].'</td> <td colspan=2> '.$row['nom_categorie'].'</td> <td colspan=2> '.$row['sortie'].'</td><td colspan=2> '.$row['login']. '</td> <td colspan=2> '.$row['publication']. '</td>  <td colspan=2> <input type="button"  value="consulter"></input></td> </tr>';
+                        echo '
+                        <form method="POST" action="article.php" enctype="multipart/form-data">
+
+                        <input type="hidden" name="id" value='.$row['id_article'].'>
+                            <tr class="debut">
+                                <td colspan=2> <img src="'.$row['affiche'].'"/></td> 
+                                <td colspan=2> '.$row['film']. '</td> 
+                                <td colspan=2> '.$row['realisateur'].'</td> 
+                                <td colspan=2> '.$row['nom_categorie'].'</td> 
+                                <td colspan=2> '.$row['sortie'].'</td>
+                                <td colspan=2> '.$row['login']. '</td>
+                                <td colspan=2> '.$row['publication']. '</td> 
+                                <td colspan=2> <input type="submit"  value="consulter"></input></td> 
+                            </tr>
+                            </form>';  
                     }
                     echo '</table>';
                     mysqli_close($bdd);
@@ -185,13 +227,13 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
                     echo '<table BORDER CELLPADDING=8 CELLSPACING=0>
                     <tr class="entete">
-                        
+                        <th colspan=2>Affiche</th>
                         <th colspan=2>Film</th>
                         <th colspan=2>Réalisateur</th>
                         <th colspan=2>Catégorie</th>
@@ -202,20 +244,45 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                        
                     </tr>';
                     while ( ($row = mysqli_fetch_assoc($requete2)) ) {
-                        echo '<tr class="debut"> <td colspan=2> '.$row['film']. '</td> <td colspan=2> '.$row['realisateur'].'</td> <td colspan=2> '.$row['nom_categorie'].'</td> <td colspan=2> '.$row['sortie'].'</td><td colspan=2> '.$row['login']. '</td> <td colspan=2> '.$row['publication']. '</td>  <td colspan=2> <input type="button"  value="consulter"></input></td> </tr>';
+                        
+                        echo '
+                        <form method="POST" action="article.php" enctype="multipart/form-data">
+
+                        <input type="hidden" name="id" value='.$row['id_article'].'>
+                            <tr class="debut">
+                                <td colspan=2> <img src="'.$row['affiche'].'"/></td> 
+                                <td colspan=2> '.$row['film']. '</td> 
+                                <td colspan=2> '.$row['realisateur'].'</td> 
+                                <td colspan=2> '.$row['nom_categorie'].'</td> 
+                                <td colspan=2> '.$row['sortie'].'</td>
+                                <td colspan=2> '.$row['login']. '</td>
+                                <td colspan=2> '.$row['publication']. '</td> 
+                                <td colspan=2> <input type="submit"  value="consulter"></input></td> 
+                            </tr>
+                            </form>';  
+                                              
                     }
+
                     echo '</table>';
                     mysqli_close($bdd);          
-                    
-                    
+        
+
+
 
        }
 
+
 ?>
-   
-                                </form>
+   <!--</form>-->
+                                
                                 </div>
         </div>
 </body>
+<script>
+    function id {
 
+    }
+
+
+</script>
 <?php include "inc\jooter.php" ?>

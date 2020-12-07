@@ -75,7 +75,7 @@
 	<div class="jumbotron top-space">
 		<div class="container">
 			
-			<h3 class="text-center thin">Dernier articles</h3>
+			<h1 class="text-center thin">Dernier articles :</h1>
 
 			<?php
 			$result = $pdo->query("SELECT `id_article`,`film`,`date_sortie`,date_publication,c.nom_categorie, affiche, contenu, note

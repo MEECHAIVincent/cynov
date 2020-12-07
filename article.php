@@ -69,13 +69,13 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                 </section>
                 <div style="font-size:x-large">
 
-                    <p> <b>Auteur de larticle: '.$article['login'].' plubliée le '.$article['publication']. '</b></p> 
+                    <p> <b>Auteur de l\'article: '.$article['login'].' plubliée le '.$article['publication']. '</b></p> 
                 </div>';
 
-                // Espace Coemmentaire
+                // Espace Commentaire
                 echo '<div >
                     <h2><b>Commentaire</b></h2>
-                    <
+                    
 
                 </div>'
             ?>

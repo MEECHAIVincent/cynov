@@ -1,32 +1,41 @@
-Progressus - Free business/corporate Bootstrap template
-=============
 
-Progressus is a free, responsive, nice-looking business template based on Bootstrap HTML/CSS framework. 
-
-
-License
--------
-**Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
+Membres :
+Truong Denis,
+Dufour-Lamartinie Clément,
+MEECHAI Vincent,
+XU Florent 
 
 
-Features
------------
-
-* Easy to use, fat-free HTML and CSS code.
-* 7 ready-made templates for most common tasks
-* Responsive design
-* High overral quality, the template does worth to be premium.
 
 
-Bug tracker
------------
 
-Found a bug? Please create an issue here on GitHub! 
-https://github.com/pozh/Progressus/issues
+Concept : Application Web, de partage d’avis sur des films. Les utilisateurs lambda peuvent s’inscrire via la plateforme de connexion/inscription. Ils peuvent ajouter des commentaires aux articles publié et ajouter de nouveaux avis de films et de nouveaux articles. Les modérateurs modèrent les post des utilisateurs et peuvent publier des articles.
+
+Langages : Jquerry, HTML/CSS, PHP, SQL
 
 
-Credits
--------
-* Design and development: **Sergey Pozhilov** - http://pozhilov.com
-* Photos used in template: **Unsplash** - http://unsplash.com
-* More free templates by Sergey: http://gettemplate.com
+Différentes pages :
+-Connexion (Clément)
+-Inscription (Clément)
+-Page principal Accueil (Vincent)
+-Liste des articles (Florent)
+-Article (Vincent/Florent)
+-Ajouter nvx Articles (Clément)
+-Gestion des utilisateurs (modérateur) (Denis)
+-Gestion des articles (modérateur) (Denis)
+
+
+Applications utilisées :
+-GitHub
+-IDE (propre à chacun)
+-MySQL
+-Discord
+-Photoshop
+
+Etapes :
+-Cahier des charges
+-Maquette du site
+-Attribution des rôles 
+-Architecture BDD
+-Création logo 
+-Développement 

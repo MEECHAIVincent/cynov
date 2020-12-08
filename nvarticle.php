@@ -52,7 +52,7 @@ if (!empty($_POST) && !empty($_FILES)) {
     $ctn = addslashes($ctn); //pour ajouter des slashes pour prendre en compte les apostrophes
     
     $login = $_SESSION['login'];
-    $requete = mysqli_query($bdd,"SELECT id_user from user  where login='$login'");;
+    $requete = mysqli_query($bdd,"SELECT id_user from user  where login='$login'");; //selectionne l'id de l'utilisateur pour savoir qui a publié l'article
     $data = mysqli_fetch_assoc($requete);
     $aut = $data['id_user'];
 
@@ -71,7 +71,7 @@ if (!empty($_POST) && !empty($_FILES)) {
     if(in_array($file_extension, $extensions_autorisees)){
         if(move_uploaded_file($file_tmp_name, $file_dest )){
             
-           
+            //Insert les donnée de l'article de l'utilisateur dans la bdd 
              $requete2 = "INSERT into article(id_article, film, realisateur,date_sortie, categorie, note, contenu, auteur, affiche, date_publication, statut) values(NULL,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP, 0)";  
                 $resultat2 = mysqli_prepare($bdd, $requete2);
                 mysqli_stmt_bind_param($resultat2, "ssssssss",$tre,$real, $date, $cat, $nt, $ctn, $aut, $file_dest);

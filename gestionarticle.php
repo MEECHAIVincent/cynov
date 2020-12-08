@@ -81,16 +81,5 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
 </body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
 
 <?php include "inc\jooter.php" ?>

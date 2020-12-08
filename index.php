@@ -75,12 +75,12 @@
 	<div class="jumbotron top-space">
 		<div class="container">
 			
-			<h1 class="text-center thin">Dernier articles :</h1>
+			<h3 class="text-center thin">Dernier articles</h3>
 
 			<?php
-			$result = $pdo->query("SELECT `id_article`,`film`,`date_sortie`,date_publication,c.nom_categorie, affiche, contenu, note
-									FROM `article` as a JOIN categorie as c on c.id_categorie = a.categorie
-									WHERE statut = 1									 
+			$result = $pdo->query("SELECT `id_article` as id,`film`,`date_sortie`,date_publication,c.nom_categorie, affiche, contenu, note
+									FROM `article` as a JOIN categorie as c on c.id_categorie = a.categorie where a.statut = 1
+									 
 									ORDER BY a.date_publication DESC
 									LIMIT 10");
                                         while ($data = $result->fetch(PDO::FETCH_OBJ)) {
@@ -94,15 +94,20 @@
 			
 				<div class="col-12 col-md-6 mb-4 highlight">
 					<div class="h-body text-center">
+						<form method="POST" action="article.php">
+						<input type="hidden" name="id" value=' <?php echo $data->id; ?>'>
 						<p><h4><b><?php echo $data->film; ?></b></h4>
 						Sorti le : <?php echo date("d/m/Y",strtotime($data->date_sortie)); ?><br>
 						Publié le : <?php echo date("d/m/Y",strtotime($data->date_publication)); ?>
 						<img src="<?php echo $data->affiche ?>" alt="img_bdd" class="img-responsive">
 						<article>
 						<?php echo substr($data->contenu, 0,220). "..."; ?>
-						</article>					
-						Note : <?php echo $data->note; ?>/10 <a href="#"><button class="btn btn-primary">Regarder l'article</button></a> 	
+						</article>
+						Note : <?php echo $data->note; ?>/10
+						<br>
+						<input type="submit" class="btn btn-primary" value="Regarder l'article">
 						</p>
+						</form>
 					</div>
 				</div>
 

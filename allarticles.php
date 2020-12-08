@@ -8,6 +8,8 @@
 <body>
 
 <?php
+
+
 if (empty($_GET['login']) && empty($_SESSION['login'])) {
     header('Location: signin.php');
     die;
@@ -83,7 +85,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where categorie=$categorie and realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where categorie=$categorie and realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
@@ -130,7 +132,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  categorie=$categorie and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  categorie=$categorie and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
@@ -176,7 +178,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
@@ -197,7 +199,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                         <form method="POST" action="article.php" enctype="multipart/form-data">
 
                         <input type="hidden" name="id" value='.$row['id_article'].'>
-                            <tr class="debut" style="border:none">
+                            <tr class="debut">
                                 <td colspan=2> <img src="'.$row['affiche'].'"/></td> 
                                 <td colspan=2> '.$row['film']. '</td> 
                                 <td colspan=2> '.$row['realisateur'].'</td> 

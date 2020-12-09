@@ -112,7 +112,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
                 // requete pour exécuter la commande insert 
                 $req = $pdo->exec("INSERT into commentaire (user, user_nom, article, commentaire, date_publication ) values ('$aut', '$autnom', '$id','$comment',CURRENT_TIMESTAMP)");
-            } 
+            }
 
 
 

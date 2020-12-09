@@ -85,13 +85,14 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where categorie=$categorie and realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where categorie=$categorie and realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
                     echo '<table BORDER CELLPADDING=8 CELLSPACING=0>
                     <tr class="entete">
                         
+                        <th colspan=2>Affiche</th>
                         <th colspan=2>Film</th>
                         <th colspan=2>Réalisateur</th>
                         <th colspan=2>Catégorie</th>
@@ -132,13 +133,14 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  categorie=$categorie and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  categorie=$categorie and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
                     echo '<table BORDER CELLPADDING=8 CELLSPACING=0>
                     <tr class="entete">
                         
+                        <th colspan=2>Affiche</th>
                         <th colspan=2>Film</th>
                         <th colspan=2>Réalisateur</th>
                         <th colspan=2>Catégorie</th>
@@ -178,13 +180,14 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
 
 
                 // Récupérations valeurs des champs pour affichage du tableau
-                $requete2 = mysqli_query($bdd, "SELECT distinct id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
+                $requete2 = mysqli_query($bdd, "SELECT distinct affiche,id_article,film,realisateur, nom_categorie, DATE_FORMAT(date_sortie,'%d/%m/%Y')as sortie,login, DATE_FORMAT(date_publication,'%d/%m/%Y')as publication FROM user, article, categorie where  realisateur='$realisateur' and article.statut=1 and user.id_user=article.auteur and article.categorie=categorie.id_categorie order by publication desc");
                 //affiche le nombre d'élément de la requète
 
                     // Affichage du tableau
                     echo '<table BORDER CELLPADDING=8 CELLSPACING=0>
                     <tr class="entete">
                         
+                        <th colspan=2>Affiche</th>
                         <th colspan=2>Film</th>
                         <th colspan=2>Réalisateur</th>
                         <th colspan=2>Catégorie</th>
@@ -233,6 +236,7 @@ if (empty($_GET['login']) && empty($_SESSION['login'])) {
                     // Affichage du tableau
                     echo '<table BORDER CELLPADDING=8 CELLSPACING=0>
                     <tr class="entete">
+                    
                         <th colspan=2>Affiche</th>
                         <th colspan=2>Film</th>
                         <th colspan=2>Réalisateur</th>
